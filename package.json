@@ -4,9 +4,11 @@
   "description": "Recipe application",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --dist-dir ./dist",
-    "deploy": "gh-pages-deploy -- 'first gh-pages-deploy'",
-    "clean-source": "rimraf README.md src webroot package.json"
+    "prebuild-dev": "shx rm -rf dist/*",
+    "build-dev": "parcel build ./src/index.html --no-optimize --public-url ./",
+    "prebuild": "shx rm -rf dist/*",
+    "build": "parcel build ./src/index.html --public-url ./",
+    "push-gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup --verbose"
   },
   "author": "Philip Chernonog",
   "license": "ISC",
@@ -14,11 +16,13 @@
     "@parcel/transformer-sass": "^2.8.3",
     "gh-pages-deploy": "^0.5.1",
     "parcel": "^2.8.3",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "shx": "^0.3.4"
   },
   "dependencies": {
     "core-js": "^3.27.2",
     "fractional": "^1.0.0",
     "regenerator-runtime": "^0.13.11"
-  }
+  },
+  "repository": "https://github.com/phil-blackfoot/forkify-philip-SP.git"
 }
