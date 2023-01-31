@@ -1,0 +1,3 @@
+# forkify study project
+
+Recipe application with custom recipe uploads. Main developer feature was using Model-View-Controller architecture to get User Interface and Data separetely, with controller module to connect them. 
