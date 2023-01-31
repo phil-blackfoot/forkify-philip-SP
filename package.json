@@ -4,12 +4,22 @@
   "description": "Recipe application",
   "scripts": {
     "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html --dist-dir ./dist"
+    "build": "parcel build ./src/index.html --dist-dir ./dist",
+    "deploy": "gh-pages-deploy": {
+       "staticpath": "dist",
+       "prep": [
+        "build-sass",
+        "optimize-img"
+       ],
+        "commit": "test gh-pages-deploy"
+    },
+    "clean-source": "rimraf README.md src webroot package.json"
   },
   "author": "Philip Chernonog",
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
+    "gh-pages-deploy": "^0.5.1",
     "parcel": "^2.8.3",
     "process": "^0.11.10"
   },
